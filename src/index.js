@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  //StrictMode renders components twice in development to 
+  // check for inconsistencies between calls
   <React.StrictMode>
     <App />
   </React.StrictMode>
