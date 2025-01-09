@@ -6,6 +6,8 @@ import SecondaryContainer from './SecondaryContainer'
 import usePopularMovies from '../hooks/usePopularMovies'
 import useTrendingMovies from '../hooks/useTrendingMovies'
 import useUpcomingMovies from '../hooks/useUpcomingMovies'
+import GPTSearch from './GPTSearch'
+import { useSelector } from 'react-redux'
 
 const Browse = () => {
 
@@ -15,11 +17,21 @@ const Browse = () => {
   useTrendingMovies();
   useUpcomingMovies();
 
+  const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
+
   return (
-    <div className='grid grid-rows-2'>
-      <Header/>
-      <MainContainer/>
-      <SecondaryContainer/> 
+    <div>
+        <Header/>
+      {
+        showGptSearch ? (
+        <GPTSearch/>
+        ) : (
+          <>
+          <MainContainer/>
+          <SecondaryContainer/> 
+          </>
+        )
+      }
     </div>
   )
 }
