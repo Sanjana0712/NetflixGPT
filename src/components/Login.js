@@ -124,12 +124,6 @@ const toggleSignInForm = () => {
                 </>
                 )}
             </p>
-
-
-            {/* <p className="py-4 cursor-pointer" 
-            onClick={toggleSignInForm}>
-            {isSignIn ? "New to Netflix? Sign up now": "Already signed up? Sign In now"}
-            </p> */}
         </form>
     </div>
   )

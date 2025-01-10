@@ -25,7 +25,6 @@ const GptSearchBar = () => {
           setSearchError("Please enter something to search");
           return;
         }
-        console.log(searchText.current.value);
 
         const gptQuery = "Act as a Movie Recommendation system and suggest some movies for the query" + searchText.current.value + ". only give me names of 5 movies, comma separated like the example result given ahead. Example Result: The Shawshank Redemption, The Godfather, The Dark Knight, Inception, Schindler's List";
 
@@ -45,8 +44,6 @@ const GptSearchBar = () => {
         
         //returns an array of promises as javascript makes all the api calls in parallel
         const tmdbResults = await Promise.all(promiseArray);
-
-        console.log(tmdbResults);
 
         //Store the gptMovies and tmdbResults in Redux store
         dispatch(addGptMovieResults({movieNames: gptMovies, movieResults: tmdbResults}));
