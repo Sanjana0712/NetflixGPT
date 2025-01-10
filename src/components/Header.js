@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {onAuthStateChanged } from "firebase/auth";
 import { addUser, removeUser } from '../utils/userSlice'
 import { LOGO, SUPPORTED_LANGUAGES } from '../utils/constants';
-import { toggleGptSearchView } from '../utils/gptSlice';
+import { removeGptMovieResults, toggleGptSearchView } from '../utils/gptSlice';
 import { changeLanguage } from '../utils/configSlice';
 
 
@@ -25,6 +25,10 @@ const Header = () => {
   }
 
   const handleGptSearchClick = () => {
+    if (!showGPTSearch) {
+      // Clear previous results when entering GPT Search
+      dispatch(removeGptMovieResults());
+    }
     dispatch(toggleGptSearchView());
   }
 

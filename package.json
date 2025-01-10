@@ -6,6 +6,7 @@
     "@firebasegen/default-connector": "file:dataconnect-generated/js/default-connector",
     "cra-template": "1.2.0",
     "firebase": "^11.1.0",
+    "openai": "^4.77.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^9.2.0",
