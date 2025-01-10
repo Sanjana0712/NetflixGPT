@@ -7,6 +7,8 @@ const useMovieTrailer = async (movieId) => {
 
     const dispatch = useDispatch();
 
+    const trailerVideo = useSelector((store) => store.movies.trailerVideo);
+
     //Fetch trailer and store it in store
   const getMovieVideos = async() => {
     const data = await fetch("https://api.themoviedb.org/3/movie/"+movieId+"/videos", API_OPTIONS);
@@ -22,7 +24,7 @@ const useMovieTrailer = async (movieId) => {
 
   //Making API inside useEffect to call only once when component mounts
   useEffect(() => {
-    getMovieVideos();
+    !trailerVideo && getMovieVideos();
   },[]);
 
 }
